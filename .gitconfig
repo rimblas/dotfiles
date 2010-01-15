@@ -1,0 +1,8 @@
+[user]
+	name = Dan Callahan
+	email = dan.callahan@gmail.com
+[alias]
+    ci = commit
+    st = status
+[color]
+    ui = auto

@@ -23,7 +23,7 @@ export LSCOLORS=ExGxFxdxCxDxDxxbaDacae
 
 # Virtualenvwrapper
 if [ -r ${HOME}/.local/src/virtualenvwrapper/virtualenvwrapper_bashrc ]; then
-    [ -d ${HOME}/.virtualenvs ] || mkdir -p ${HOME}/.virtualenvs
     export WORKON_HOME=${HOME}/.virtualenvs
+    [ -d ${WORKON_HOME} ] || mkdir -p ${WORKON_HOME}
     source ${HOME}/.local/src/virtualenvwrapper/virtualenvwrapper_bashrc
 fi

@@ -1,0 +1,10 @@
+[ui]
+username = Dan Callahan <dan.callahan@gmail.com>
+
+# Prevents data loss with mq. Not needed in Mercurial versions > 1.4.2
+[diff]
+git = True
+
+[extensions]
+color =
+hgext.mq =

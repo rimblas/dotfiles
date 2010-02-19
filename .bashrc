@@ -21,7 +21,8 @@ fi
 alias ls="ls -AFG"
 export LSCOLORS=ExGxFxdxCxDxDxxbaDacae
 
-# Virtualenvwrapper
+# Virtualenv + virtualenvwrapper
+export VIRTUALENV_USE_DISTRIBUTE=1
 if [ -r ${HOME}/.local/src/virtualenvwrapper/virtualenvwrapper_bashrc ]; then
     export WORKON_HOME=${HOME}/.virtualenvs
     [ -d ${WORKON_HOME} ] || mkdir -p ${WORKON_HOME}

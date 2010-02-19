@@ -4,8 +4,8 @@ if [ -d "${HOME}/.local/bin" ]; then
 fi
 
 # Android SDK
-if [ -d "${HOME}/.local/src/android-sdk-mac_86" ]; then
-    export PATH="${PATH}:${HOME}/.local/src/android-sdk-mac_86/tools"
+if [ -d "${HOME}/Developer/Android/android-sdk-mac_86" ]; then
+    export PATH="${PATH}:${HOME}/Developer/Android/android-sdk-mac_86/tools"
 fi
 
 # Ruby Gems

@@ -21,5 +21,10 @@ if [ -d "${HOME}/.local/src/go" ]; then
     export GOBIN="${HOME}/.local/bin"
 fi
 
+# Hack: Keep $PATH synchronized for Cocoa and terminal apps
+if [ `uname` = "Dawin" ]; then
+    defaults write ~/.MacOSX/environment PATH "$PATH"
+fi
+
 # Miscellaneous
 [ -r ${HOME}/.bashrc ] && . ${HOME}/.bashrc

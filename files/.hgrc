@@ -8,3 +8,4 @@ git = True
 [extensions]
 color =
 hgext.mq =
+fetch =

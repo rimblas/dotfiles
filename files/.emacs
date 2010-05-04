@@ -116,6 +116,11 @@
 ;; Whitespace mode
 (setq whitespace-style '(trailing tabs tab-mark))
 
+;; Flyspell
+(setq-default ispell-program-name "aspell")
+(setq-default ispell-extra-args '("--dont-suggest"))
+(setq-default ispell-dictionary "en_US")
+
 ;; ========== Scheme mode specifics ==========
 (setq scheme-program-name "/usr/local/bin/gsi -:d-")
 (autoload 'gambit-inferior-mode "gambit" "Hook Gambit mode into cmuscheme.")
@@ -123,7 +128,8 @@
 (add-hook 'inferior-scheme-mode-hook (function gambit-inferior-mode))
 (add-hook 'scheme-mode-hook (function (lambda ()
                                         (gambit-mode)
-                                        (auto-fill-mode 1))))
+                                        (auto-fill-mode 1)
+                                        (flyspell-prog-mode))))
 (add-to-list 'auto-mode-alist '("\\.scm$" . scheme-mode))
 
 ;; ========== Emacs managed settings ==========

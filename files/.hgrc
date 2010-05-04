@@ -9,3 +9,6 @@ git = True
 color =
 hgext.mq =
 fetch =
+hgext.churn =
+hgext.graphlog =
+progress =

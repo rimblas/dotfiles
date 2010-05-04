@@ -19,6 +19,7 @@ done
 # Bali if any physical directories were present
 if [ $FLAG -ne 0 ]; then
     echo "Then re-run this script to install symlinks."
+    cd "$OLDPWD"
     exit 1
 fi
 

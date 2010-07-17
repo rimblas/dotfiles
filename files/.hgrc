@@ -1,5 +1,6 @@
 [ui]
 username = Dan Callahan <dan.callahan@gmail.com>
+style = compact
 
 # Prevents data loss with mq. Not needed in Mercurial versions > 1.4.2
 [diff]
@@ -7,8 +8,19 @@ git = True
 
 [extensions]
 color =
-hgext.mq =
+mq =
 fetch =
 hgext.churn =
 hgext.graphlog =
 progress =
+hgext.patchbomb =
+
+[email]
+from = Dan Callahan <dan.callahan@gmail.com>
+method = smtp
+
+[smtp]
+host = smtp.gmail.com
+port = 587
+tls = True
+username = dan.callahan@gmail.com

@@ -23,7 +23,7 @@ export LSCOLORS=ExGxFxdxCxDxDxxbaDacae
 
 # Virtualenv + virtualenvwrapper
 export VIRTUALENV_USE_DISTRIBUTE=1
-if [ -r ${HOME}/.local/src/virtualenvwrapper/virtualenvwrapper.sh ]; then
-    source ${HOME}/.local/src/virtualenvwrapper/virtualenvwrapper.sh
+if [ -r /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
     [ -d ${WORKON_HOME} ] || mkdir -p ${WORKON_HOME}
 fi

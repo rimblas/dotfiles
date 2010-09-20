@@ -1,5 +1,6 @@
 [ui]
 username = Dan Callahan <dan.callahan@gmail.com>
+style = compact
 
 # Prevents data loss with mq. Not needed in Mercurial versions > 1.4.2
 [diff]
@@ -12,3 +13,4 @@ fetch =
 hgext.churn =
 hgext.graphlog =
 progress =
+rebase =

@@ -8,10 +8,11 @@ if [ -d "${HOME}/Developer/Android/android-sdk-mac_86" ]; then
     export PATH="${PATH}:${HOME}/Developer/Android/android-sdk-mac_86/tools"
 fi
 
-# Ruby Gems
+# Ruby
 if [ -d "${HOME}/.gem/ruby/1.8/bin" ]; then
     export PATH="${PATH}:${HOME}/.gem/ruby/1.8/bin"
 fi
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 # Go Lang
 if [ -d "${HOME}/.local/src/go" ]; then

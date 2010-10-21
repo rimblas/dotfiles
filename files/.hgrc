@@ -8,9 +8,20 @@ git = True
 
 [extensions]
 color =
-hgext.mq =
+mq =
 fetch =
 hgext.churn =
 hgext.graphlog =
 progress =
 rebase =
+hgext.patchbomb =
+
+[email]
+from = Dan Callahan <dan.callahan@gmail.com>
+method = smtp
+
+[smtp]
+host = smtp.gmail.com
+port = 587
+tls = True
+username = dan.callahan@gmail.com

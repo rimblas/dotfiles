@@ -1,33 +1,27 @@
+set nocompatible
+
 " Pathogen Setup
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-
 filetype plugin indent on
 
 " Appearance
-set nocompatible
+syntax on
 set ruler
 set background=dark
-set t_Co=16
-colors peaksea
+colorscheme peaksea
+
+" Searching
 set hlsearch
 set incsearch
-if ! has("gui_running")
-    set t_Co=8
-endif
-
-syntax on
-
-set backspace=1
-
 set ignorecase
 set smartcase
 
-set foldmethod=indent
-set nofoldenable
+" Editing Behavior
+set backspace=indent,eol
 
-" Tabs as four spaces
+" Editing Defaults
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4

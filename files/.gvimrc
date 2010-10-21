@@ -2,7 +2,7 @@ set background=dark
 
 if has("macunix")
     "set guifont=DejaVu\ Sans\ Mono:h11
-    set guifont=Inconsolata:h11
+    set guifont=Inconsolata:h15
 elseif has("unix")
     set guifont=Consolas\ 12
 else

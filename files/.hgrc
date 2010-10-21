@@ -15,6 +15,7 @@ hgext.graphlog =
 progress =
 rebase =
 hgext.patchbomb =
+rebase =
 
 [email]
 from = Dan Callahan <dan.callahan@gmail.com>

@@ -1,9 +1,16 @@
+" Pathogen Setup
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+filetype plugin indent on
+
 " Appearance
 set nocompatible
 set ruler
 set background=dark
 set t_Co=16
-colors peakseamod
+colors peaksea
 set hlsearch
 set incsearch
 if ! has("gui_running")
@@ -11,7 +18,6 @@ if ! has("gui_running")
 endif
 
 syntax on
-filetype plugin indent on
 
 set backspace=1
 

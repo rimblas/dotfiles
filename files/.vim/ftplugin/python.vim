@@ -4,4 +4,4 @@ setlocal shiftwidth=4
 setlocal textwidth=79
 setlocal smarttab
 setlocal expandtab
-setlocal smartindent
+setlocal nosmartindent

@@ -1,11 +1,10 @@
 " Vim color file --- psc (peak sea color) "Lite version"
 " Maintainer:	Pan, Shi Zhu <Go to the following URL for my email>
 " URL:		http://vim.sourceforge.net/scripts/script.php?script_id=760
-" Last Change:	30 May 2008
-" Version:	3.2
+" Last Change:	5 Feb 2010
+" Version:	3.4
 "
-"	Comments and e-mails are welcomed, please prepend [VIM] in the title
-"	when writing e-mail to me, thanks.
+"	Comments and e-mails are welcomed, thanks.
 "
 "	The peaksea color is simply a colorscheme with the default settings of
 "	the original ps_color. Lite version means there's no custom settings
@@ -16,10 +15,19 @@
 "
 " Note: Please set the background option in your .vimrc and/or .gvimrc
 "
-"	'background' option should NEVER be set inside a colorscheme file.
-"	because ":set background" inside a colorscheme will cause colorscheme
-"	be sourced at least twice, in the worst case this may result an
-"	infinite loop!
+"	It is much better *not* to set 'background' option inside
+"	a colorscheme file.  because ":set background" improperly
+"	may cause colorscheme be sourced twice
+"
+" Color Scheme Overview: 
+"	:ru syntax/hitest.vim
+"
+" Relevant Help: 
+"	:h highlight-groups
+"	:h psc-cterm-color-table
+"
+" Colors Order:
+"	#rrggbb
 "
 
 hi clear
@@ -29,15 +37,6 @@ if exists("syntax_on")
 endif
 
 let g:colors_name = expand("<sfile>:t:r")
-
-" Relevant Help: 
-" :h hi-groups
-" :h psc-cterm-color-table
-" :ru syntax/hitest.vim
-"
-" Colors Order:
-" #rrggbb
-"
 
 " I don't want to abuse folding, but here folding is used to avoid confusion. 
 if &background=='light' 
@@ -149,10 +148,17 @@ if &background=='light'
 
   " gui define for background=light end here
 
+  " generally, a dumb terminal is dark, we assume the light terminal has 256
+  " color support.
+  if &t_Co==8 || &t_Co==16
+    set t_Co=256
+  endif
   if &t_Co==256
     " 256color light terminal support here
 
     hi Normal		ctermfg=16	ctermbg=254	cterm=NONE
+    " Comment/Uncomment the following line to disable/enable transparency
+    "hi Normal		ctermfg=16	ctermbg=NONE	cterm=NONE
     hi Search		ctermfg=NONE	ctermbg=231	cterm=NONE
     hi Visual		ctermfg=NONE	ctermbg=153	cterm=NONE
     hi Cursor		ctermfg=255	ctermbg=28	cterm=NONE
@@ -175,6 +181,8 @@ if &background=='light'
     hi VisualNOS	ctermfg=fg	ctermbg=146	cterm=NONE
     hi SpecialKey	ctermfg=25	ctermbg=NONE	cterm=NONE
     hi NonText		ctermfg=18	ctermbg=252	cterm=NONE
+    " Comment/Uncomment the following line to disable/enable transparency
+    "hi NonText		ctermfg=18	ctermbg=NONE	cterm=NONE
     hi Directory	ctermfg=133	ctermbg=NONE	cterm=NONE
     hi ErrorMsg		ctermfg=fg	ctermbg=216	cterm=NONE
     hi MoreMsg		ctermfg=64	ctermbg=NONE	cterm=NONE
@@ -197,10 +205,18 @@ if &background=='light'
     " NOTE THIS IS IN THE WARM SECTION
     if v:version >= 700
       if has('spell')
-        hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=130
-        hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=25
-        hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=133
-        hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=23
+        if 0
+          " ctermsp is not supported in Vim7, we ignore it.
+          hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=130
+          hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=25
+          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=133
+          hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=23
+        else
+          hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+        endif
       endif
       hi Pmenu		ctermfg=fg	ctermbg=182
       hi PmenuSel	ctermfg=255	ctermbg=95	cterm=NONE
@@ -236,7 +252,7 @@ if &background=='light'
     hi ModeMsg		cterm=bold
     hi TabLineSel	cterm=bold
 
-    hi lCursor		ctermfg=bg	ctermbg=fg	cterm=NONE
+    "hi lCursor		ctermfg=bg	ctermbg=fg	cterm=NONE
   endif " t_Co==256
   " }}}2
 elseif &background=='dark' 
@@ -476,6 +492,8 @@ elseif &background=='dark'
   elseif &t_Co==256
     " 256color dark terminal support here
     hi Normal		ctermfg=252	ctermbg=234	cterm=NONE
+    " Comment/Uncomment the following line to disable/enable transparency
+    "hi Normal		ctermfg=252	ctermbg=NONE	cterm=NONE
     hi Comment		ctermfg=186	ctermbg=NONE	cterm=NONE
     hi Constant		ctermfg=110	ctermbg=NONE	cterm=NONE
     hi Number		ctermfg=179	ctermbg=NONE	cterm=NONE
@@ -498,6 +516,8 @@ elseif &background=='dark'
     hi VisualNOS	ctermfg=fg	ctermbg=18	cterm=NONE
     hi SpecialKey	ctermfg=153	ctermbg=NONE	cterm=NONE
     hi NonText		ctermfg=69	ctermbg=233	cterm=NONE
+    " Comment/Uncomment the following line to disable/enable transparency
+    "hi NonText		ctermfg=69	ctermbg=NONE	cterm=NONE
     hi Directory	ctermfg=110	ctermbg=NONE	cterm=NONE
     hi ErrorMsg		ctermfg=186	ctermbg=88	cterm=NONE
     hi MoreMsg		ctermfg=150	ctermbg=NONE	cterm=NONE
@@ -519,11 +539,18 @@ elseif &background=='dark'
     " NOTE THIS IS IN THE COOL SECTION
     if v:version >= 700
       if has('spell')
-        " the ctermsp= could only support in Vim 7
-        hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=209
-        hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=69
-        hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=219
-        hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=153
+        " the ctermsp= is not supported in Vim 7 we simply ignored
+        if 0
+          hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=209
+          hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=69
+          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=219
+          hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=153
+        else
+          hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+          hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
+        endif
       endif
       hi Pmenu		ctermfg=fg	ctermbg=90
       hi PmenuSel	ctermfg=16	ctermbg=252	cterm=NONE

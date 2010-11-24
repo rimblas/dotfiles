@@ -28,3 +28,6 @@ set textwidth=80
 set smarttab
 set expandtab
 set smartindent
+
+" Plugin Configuration
+let Tlist_Ctags_Cmd="/usr/local/bin/ctags"

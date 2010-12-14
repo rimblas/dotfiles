@@ -8,6 +8,8 @@ filetype plugin indent on
 " Appearance
 syntax on
 set ruler
+set showcmd
+set ttyfast
 set background=dark
 colorscheme peaksea
 

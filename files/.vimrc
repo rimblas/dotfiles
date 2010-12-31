@@ -32,4 +32,5 @@ set expandtab
 set smartindent
 
 " Plugin Configuration
+let NERDTreeIgnore=['\.pyc$']
 let Tlist_Ctags_Cmd="/usr/local/bin/ctags"

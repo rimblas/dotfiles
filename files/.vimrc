@@ -31,6 +31,11 @@ set smarttab
 set expandtab
 set smartindent
 
+" File Globbing
+set wildignore+=*.py[co]
+set wildignore+=*.sw[po]
+set wildignore+=.DS_Store
+set wildignore+=[Tt]humbs.db
+
 " Plugin Configuration
-let NERDTreeIgnore=['\.pyc$']
 let Tlist_Ctags_Cmd="/usr/local/bin/ctags"

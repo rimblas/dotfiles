@@ -23,7 +23,7 @@ if [ -d "${HOME}/.local/src/go" ]; then
 fi
 
 # Hack: Keep $PATH synchronized for Cocoa and terminal apps
-if [ `uname` = "Dawin" ]; then
+if [ `uname` = "Darwin" ]; then
     defaults write ~/.MacOSX/environment PATH "$PATH"
 fi
 

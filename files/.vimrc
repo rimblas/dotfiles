@@ -39,3 +39,4 @@ set wildignore+=[Tt]humbs.db
 
 " Plugin Configuration
 let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
+let g:CommandTCancelMap=['<ESC>','<C-c>']

@@ -21,6 +21,8 @@ fi
 alias ls="ls -AFG"
 export LSCOLORS=ExGxFxdxCxDxDxxbaDacae
 
+stty -ixon
+
 # Use MacVim in the console if available
 if [ -x /usr/local/bin/mvim ]; then
     alias vi="mvim -v"

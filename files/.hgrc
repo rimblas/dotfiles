@@ -1,10 +1,15 @@
 [ui]
 username = Dan Callahan <dan.callahan@gmail.com>
 style = compact
+merge = vimdiff
 
-# Prevents data loss with mq. Not needed in Mercurial versions > 1.4.2
+# Prevents data loss with mq. Not needed in Mercurial versions > 1.4.2?
 [diff]
 git = True
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
 
 [extensions]
 color =

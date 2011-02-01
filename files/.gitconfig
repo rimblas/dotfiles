@@ -4,5 +4,6 @@
 [alias]
     ci = commit
     st = status
+    glog = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [color]
     ui = auto

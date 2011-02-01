@@ -12,16 +12,16 @@ vimdiff.executable = vim
 vimdiff.args = -d $base $local $output $other +close +close
 
 [extensions]
+bookmarks =
 color =
-mq =
 fetch =
-hgext.churn =
-hgext.graphlog =
+churn =
+graphlog =
+patchbomb =
+mq =
+parentrevspec =
 progress =
 rebase =
-hgext.patchbomb =
-parentrevspec =
-bookmarks =
 
 [email]
 from = Dan Callahan <dan.callahan@gmail.com>

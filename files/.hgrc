@@ -13,15 +13,18 @@ vimdiff.args = -d $base $local $output $other +close +close
 
 [extensions]
 bookmarks =
+churn =
 color =
 fetch =
-churn =
 graphlog =
-patchbomb =
 mq =
 parentrevspec =
+patchbomb =
 progress =
 rebase =
+
+[bookmarks]
+track.current = True
 
 [email]
 from = Dan Callahan <dan.callahan@gmail.com>

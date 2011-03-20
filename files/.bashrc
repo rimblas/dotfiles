@@ -48,9 +48,3 @@ if [ -r /usr/local/bin/virtualenvwrapper.sh ]; then
     source /usr/local/bin/virtualenvwrapper.sh
     [ -d ${WORKON_HOME} ] || mkdir -p ${WORKON_HOME}
 fi
-
-# Set up proxies
-function prox {
-    export http_proxy=http://`scutil --proxy | grep 'HTTP[Port|Proxy]' | sort -r | sed 's/^.*: *//' | sed 'N;s/\n/:/'`
-    export https_proxy=http://`scutil --proxy | grep 'HTTPS[Port|Proxy]' | sort -r | sed 's/^.*: *//' | sed 'N;s/\n/:/'`
-}

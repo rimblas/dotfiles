@@ -12,29 +12,38 @@ function rvm_prompt_info() {
 }
 
 prompt_callahad_setup() {
+
+    # Prompt Colors
+    color_user=$fg[blue]
+    color_host=$fg[cyan]
+    color_path=$fg_bold[green]
+    color_vcsaction=$fg[red]
+    color_vcsbranch=$fg[blue]
+    color_vcsstatus=$fg_bold[green]
+
     zstyle ':vcs_info:*' enable hg git svn
-    #zstyle ':vcs_info:*' get-revision true
-    #zstyle ':vcs_info:*' check-for-changes true
-    #zstyle ':vcs_info:hg*:*' get-bookmarks true
-    #zstyle ':vcs_info:hg*:*' get-mq true
-    #zstyle ':vcs_info:hg*:*' get-unapplied true
+    zstyle ':vcs_info:*' get-revision true
+    zstyle ':vcs_info:*' check-for-changes true
+    zstyle ':vcs_info:hg*:*' get-bookmarks true
+    zstyle ':vcs_info:hg*:*' get-mq true
+    zstyle ':vcs_info:hg*:*' get-unapplied true
     zstyle ':vcs_info:hg*:*' hgrevformat "%r"
     zstyle ':vcs_info:hg*:*' branchformat "%b"
     zstyle ':vcs_info:hg*:*' patch-format "mq(%g):%n/%c %p"
     zstyle ':vcs_info:hg*:*' nopatch-format "mq(%g):%n/%c %p"
     zstyle ':vcs_info:*' unstagedstr '?'
     zstyle ':vcs_info:*' stagedstr '!'
-    zstyle ':vcs_info:hg*:*' actionformats " on %{$fg[red]%}%a %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "☿"
-    zstyle ':vcs_info:hg*:*' formats " on %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "☿"
-    zstyle ':vcs_info:git*:*' actionformats " on %{$fg[red]%}%a %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "±"
-    zstyle ':vcs_info:git*:*' formats " on %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "±"
-    zstyle ':vcs_info:*' actionformats " on %{$fg[red]%}%a %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "●"
-    zstyle ':vcs_info:*' formats " on %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "●"
+    zstyle ':vcs_info:hg*:*' actionformats " on %{$color_vcsaction%}%a %{$color_vcsbranch%}%b%{$color_vcsstatus%}%u%c%{$reset_color%}" "☿"
+    zstyle ':vcs_info:hg*:*' formats " on %{$color_vcsbranch%}%b%{$color_vcsstatus%}%u%c%{$reset_color%}" "☿"
+    zstyle ':vcs_info:git*:*' actionformats " on %{$color_vcsaction%}%a %{$color_vcsbranch%}%b%{$color_vcsstatus%}%u%c%{$reset_color%}" "±"
+    zstyle ':vcs_info:git*:*' formats " on %{$color_vcsbranch%}%b%{$color_vcsstatus%}%u%c%{$reset_color%}" "±"
+    zstyle ':vcs_info:*' actionformats " on %{$color_vcsaction%}%a %{$color_vcsbranch%}%b%{$color_vcsstatus%}%u%c%{$reset_color%}" "●"
+    zstyle ':vcs_info:*' formats " on %{$color_vcsbranch%}%b%{$color_vcsstatus%}%u%c%{$reset_color%}" "●"
     zstyle ':vcs_info:*' nvcsformats "" "○"
 
     setopt promptsubst
     PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}$(hostname -s)%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$vcs_info_msg_0_
+%{$color_user%}%n%{$reset_color%} at %{$color_host%}$(hostname -s)%{$reset_color%} in %{$color_path%}${PWD/#$HOME/~}%{$reset_color%}$vcs_info_msg_0_
 $(rvm_prompt_info)$(virtualenv_info)$vcs_info_msg_1_ '
 
     add-zsh-hook precmd propmt_callahad_precmd

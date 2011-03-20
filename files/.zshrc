@@ -1,6 +1,8 @@
 # setopt shwordsplit
 # setopt interactivecomments
 
+fpath=("${HOME}/.zsh/functions" $fpath)
+
 # History Settings ---------------------------------
 SAVEHIST=1000
 HISTSIZE=1000
@@ -127,24 +129,14 @@ done
 autoload colors
 colors
 
-function title {
-  if [[ "$TERM" == "screen" ]]; then 
-    print -Pn "\ek$1\e\\" #set screen hardstatus, usually truncated at 20 chars
-  elif [[ ($TERM =~ "^xterm") ]] || [[ ($TERM == "rxvt") ]] || [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
-    print -Pn "\e]2;$2\a" #set window name
-    print -Pn "\e]1;$1\a" #set icon (=tab) name (will override window name on broken terminal)
-  fi
-}
+autoload title
 
 ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%~%<<" #15 char left truncated PWD
 ZSH_THEME_TERM_TITLE_IDLE="%n@%m: %~"
 
-autoload -Uz vcs_info
-
 #Appears when you have the prompt
 function precmd {
   title $ZSH_THEME_TERM_TAB_TITLE_IDLE $ZSH_THEME_TERM_TITLE_IDLE
-  vcs_info 'prompt'
 }
 
 #Appears at the beginning of (and during) of command execution
@@ -153,37 +145,7 @@ function preexec {
   title "$CMD" "%100>...>$2%<<"
 }
 
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
-
-PROMPT='
-%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}$(hostname -s)%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$vcs_info_msg_0_
-$(rvm_prompt_info)$(virtualenv_info)$vcs_info_msg_1_ '
-
 setopt promptsubst
-
-zstyle ':vcs_info:*' enable hg git svn
-zstyle ':vcs_info:*' get-revision true
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:hg*:*' get-bookmarks true
-zstyle ':vcs_info:hg*:*' get-mq true
-zstyle ':vcs_info:hg*:*' get-unapplied true
-zstyle ':vcs_info:hg*:*' hgrevformat "%r"
-zstyle ':vcs_info:hg*:*' branchformat "%b"
-zstyle ':vcs_info:hg*:*' patch-format "mq(%g):%n/%c %p"
-zstyle ':vcs_info:hg*:*' nopatch-format "mq(%g):%n/%c %p"
-zstyle ':vcs_info:*' unstagedstr '?'
-zstyle ':vcs_info:*' stagedstr '!'
-zstyle ':vcs_info:hg*:*' actionformats " on %{$fg[red]%}%a %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "☿"
-zstyle ':vcs_info:hg*:*' formats " on %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "☿"
-zstyle ':vcs_info:git*:*' actionformats " on %{$fg[red]%}%a %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "±"
-zstyle ':vcs_info:git*:*' formats " on %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "±"
-zstyle ':vcs_info:*' actionformats " on %{$fg[red]%}%a %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "●"
-zstyle ':vcs_info:*' formats " on %{$fg[magenta]%}%b%{$fg[green]%}%u%c%{$reset_color%}" "●"
-zstyle ':vcs_info:*' nvcsformats "" "○"
-
-function rvm_prompt_info() {
-  ruby_version=$(~/.rvm/bin/rvm-prompt 2> /dev/null) || return
-  [[ -n $ruby_version ]] && echo "($ruby_version) "
-}
+autoload -Uz promptinit
+promptinit
+prompt callahad

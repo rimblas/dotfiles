@@ -7,3 +7,11 @@
     glog = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [color]
     ui = auto
+[core]
+	quotepath = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope

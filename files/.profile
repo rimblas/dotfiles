@@ -22,6 +22,11 @@ if [ -d "${HOME}/.local/src/go" ]; then
     export GOBIN="${HOME}/.local/bin"
 fi
 
+# Node JS
+if [ -d "/usr/local/lib/node" ]; then
+    export NODE_PATH="${NODE_PATH}:/usr/local/lib/node"
+fi
+
 # Hack: Keep $PATH synchronized for Cocoa and terminal apps
 if [ `uname` = "Darwin" ]; then
     defaults write ~/.MacOSX/environment PATH "$PATH"

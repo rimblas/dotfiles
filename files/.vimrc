@@ -38,5 +38,6 @@ set wildignore+=.DS_Store
 set wildignore+=[Tt]humbs.db
 
 " Plugin Configuration
+map <leader>f :NERDTreeToggle<CR>
 let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 let g:CommandTCancelMap=['<ESC>','<C-c>']

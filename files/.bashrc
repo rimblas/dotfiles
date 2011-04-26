@@ -49,6 +49,9 @@ if [ -r /usr/local/bin/virtualenvwrapper.sh ]; then
     [ -d ${WORKON_HOME} ] || mkdir -p ${WORKON_HOME}
 fi
 
+# Pip
+export PIP_REQUIRE_VIRTUALENV=true
+
 # Set up proxies
 function prox {
     export http_proxy=http://`scutil --proxy | grep 'HTTP[Port|Proxy]' | sort -r | sed 's/^.*: *//' | sed 'N;s/\n/:/'`

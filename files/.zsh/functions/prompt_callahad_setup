@@ -46,10 +46,10 @@ prompt_callahad_setup() {
 %{$color_user%}%n%{$reset_color%} at %{$color_host%}$(hostname -s)%{$reset_color%} in %{$color_path%}${PWD/#$HOME/~}%{$reset_color%}$vcs_info_msg_0_
 $(rvm_prompt_info)$(virtualenv_info)$vcs_info_msg_1_ '
 
-    add-zsh-hook precmd propmt_callahad_precmd
+    add-zsh-hook precmd prompt_callahad_precmd
 }
 
-propmt_callahad_precmd() {
+prompt_callahad_precmd() {
     vcs_info 'prompt'
 }
 

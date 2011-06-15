@@ -23,4 +23,4 @@ if [[ -x /usr/local/bin/mvim ]]; then
     alias rgview="mvim -gRZ"
 fi
 
-export EDITOR=vim
+export EDITOR="mvim -v"

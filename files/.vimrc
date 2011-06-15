@@ -8,6 +8,7 @@ filetype plugin indent on
 " Appearance
 syntax on
 set ruler
+set colorcolumn=81
 set showcmd
 set ttyfast
 set background=dark

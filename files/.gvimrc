@@ -12,5 +12,6 @@ endif
 
 set guioptions=c
 
-set columns=80
+set relativenumber
+set columns=84
 set lines=60

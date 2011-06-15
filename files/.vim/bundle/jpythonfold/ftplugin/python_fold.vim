@@ -118,7 +118,7 @@ function! GetPythonFold(lnum)
     let ind = indent(a:lnum)
     " Case D***: class and def start a fold
     " If previous line is @, it is not the first
-    if line =~ s:defpat && getline(prevnonblank(a:lnum-1)) !~ '^\s*@'
+    if line =~ s:defpat " && getline(prevnonblank(a:lnum-1)) !~ '^\s*@'
         " let's see if this range of 0 or more @'s end in a class/def
         let n = a:lnum
         while getline(n) =~ '^\s*@' | let n = nextnonblank(n + 1)

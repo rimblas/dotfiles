@@ -9,6 +9,7 @@ filetype plugin indent on
 syntax on
 set ruler
 set colorcolumn=81
+set nofoldenable
 set showcmd
 set ttyfast
 set background=dark

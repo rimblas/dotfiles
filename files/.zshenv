@@ -16,9 +16,7 @@ fi
 # Go Lang
 if [[ -d "${HOME}/.local/src/go" ]]; then
     export GOROOT="${HOME}/.local/src/go"
-    export GOOS='darwin'
-    export GOARCH='amd64'
-    export GOBIN="${HOME}/.local/bin"
+    path=($path "${GOROOT}/bin")
 fi
 
 # Hack: Keep $PATH synchronized for Cocoa and terminal apps

@@ -11,7 +11,27 @@ if [[ -d "${HOME}/Developer/Android/android-sdk-mac_86" ]]; then
 fi
 
 # Ruby (RVM)
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
+#[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
+
+# Ruby (RBEnv)
+if [[ -d "${HOME}/.rbenv/bin" ]]; then
+    # Edited output of `rbenv init -`
+    path=("$HOME/.rbenv/bin" "${HOME}/.rbenv/shims" $path)
+    source "${HOME}/.rbenv/completions/rbenv.zsh"
+    function rbenv() {
+      command="$1"
+      if [ "$#" -gt 0 ]; then
+        shift
+      fi
+
+      case "$command" in
+      shell)
+        eval `rbenv "sh-$command" "$@"`;;
+      *)
+        command rbenv "$command" "$@";;
+      esac
+    }
+fi
 
 # Go Lang
 if [[ -d "${HOME}/.local/src/go" ]]; then

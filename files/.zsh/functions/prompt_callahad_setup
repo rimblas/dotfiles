@@ -6,9 +6,9 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
 
-function rvm_prompt_info() {
-  ruby_version=$(~/.rvm/bin/rvm-prompt 2> /dev/null) || return
-    [[ -n $ruby_version ]] && echo "($ruby_version) "
+function rbenv_prompt_info() {
+    # Show on prompt if the local or global rbenv has been overridden
+    [ $RBENV_VERSION ] && echo "($RBENV_VERSION) "
 }
 
 prompt_callahad_setup() {
@@ -44,7 +44,7 @@ prompt_callahad_setup() {
     setopt promptsubst
     PROMPT='
 %{$color_user%}%n%{$reset_color%} at %{$color_host%}$(hostname -s)%{$reset_color%} in %{$color_path%}${PWD/#$HOME/~}%{$reset_color%}$vcs_info_msg_0_
-$(rvm_prompt_info)$(virtualenv_info)$vcs_info_msg_1_ '
+$(rbenv_prompt_info)$(virtualenv_info)$vcs_info_msg_1_ '
 
     add-zsh-hook precmd prompt_callahad_precmd
 }

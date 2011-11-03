@@ -14,9 +14,7 @@ fi
 # Go Lang
 if [ -d "${HOME}/.local/src/go" ]; then
     export GOROOT="${HOME}/.local/src/go"
-    export GOOS="darwin"
-    export GOARCH="amd64"
-    export GOBIN="${HOME}/.local/bin"
+    export PATH="${PATH}:${GOROOT}/bin"
 fi
 
 # Node JS

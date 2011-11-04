@@ -10,9 +10,6 @@ if [[ -d "${HOME}/Developer/Android/android-sdk-mac_86" ]]; then
     path=($path "${HOME}/Developer/Android/android-sdk-mac_86/tools")
 fi
 
-# Ruby (RVM)
-#[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
-
 # Ruby (RBEnv)
 if [[ -d "${HOME}/.rbenv/bin" ]]; then
     # Edited output of `rbenv init -`

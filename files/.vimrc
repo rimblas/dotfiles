@@ -14,6 +14,8 @@ set showcmd
 set ttyfast
 set background=dark
 colorscheme peaksea
+set listchars=tab:→\\,trail:·,precedes:«,extends:»,nbsp:_
+set list
 
 " Searching
 set hlsearch

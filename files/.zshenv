@@ -33,6 +33,7 @@ fi
 # Go Lang
 if [[ -d "${HOME}/.local/src/go" ]]; then
     export GOROOT="${HOME}/.local/src/go"
+    export GOMAXPROCS=4
     path=($path "${GOROOT}/bin")
 fi
 

@@ -14,7 +14,7 @@ set showcmd
 set ttyfast
 set background=dark
 colorscheme peaksea
-set listchars=tab:→\\,trail:·,precedes:«,extends:»,nbsp:_
+set listchars=trail:·,precedes:«,extends:»,nbsp:_,tab:→\\
 set list
 
 " Searching
@@ -40,6 +40,7 @@ set wildignore+=*.py[co]
 set wildignore+=*.sw[po]
 set wildignore+=.DS_Store
 set wildignore+=[Tt]humbs.db
+set wildignore+=*.6
 
 " Plugin Configuration
 map <leader>f :NERDTreeToggle<CR>

@@ -13,3 +13,5 @@ command-t/*.o
 command-t/Makefile
 command-t/ext.bundle
 command-t/mkmf.log
+
+.git/

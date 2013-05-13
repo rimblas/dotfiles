@@ -1,17 +1,14 @@
 syntax: glob
 
 .DS_Store
-*.swp
+*.sw[po]
+*.py[co]
 *~
+
 .netrwhist
 
 doc/tags
 
 .zsh/cache
-
-command-t/*.o
-command-t/Makefile
-command-t/ext.bundle
-command-t/mkmf.log
 
 .git/

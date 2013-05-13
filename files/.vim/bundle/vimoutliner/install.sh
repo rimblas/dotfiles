@@ -1,7 +1,6 @@
 #!/bin/bash
 
 homedir=$HOME
-#homedir=./test
 vimdir=$homedir/.vim
 vodir=$vimdir/vimoutliner
 OS=`uname`
@@ -49,7 +48,7 @@ copydir () {
 	done
 }
 
-#START THE INSTALL
+#START THE INSTALLATION
 cat <<EOT
 Vim Outliner Installation
     This script is safe for installing Vim Outliner and for upgrading an
@@ -70,13 +69,12 @@ make_dir $vimdir/syntax
 make_dir $vimdir/ftplugin
 make_dir $vimdir/ftdetect
 make_dir $vimdir/doc
-make_dir $vimdir/colors
 make_dir $vodir
 make_dir $vodir/plugin
 make_dir $vodir/scripts
 if [ $created -eq 0 ]; then echo "    none created"; fi
 
-#TWEAK .vimrc
+#TWEAK $HOME/.vimrc
 modified=0
 echo checking/creating/modifying $homedir/.vimrc
 test -f $homedir/.vimrc || { echo "    creating $homedir/.vimrc"
@@ -96,7 +94,7 @@ else
 	echo "    modifying $homedir/.vimrc"
 fi
 
-#TWEAK .vim/filetype.vim
+#TWEAK $HOME/.vim/filetype.vim
 modified=0
 echo checking/creating/modifying $homedir/.vim/filetype.vim
 test -f $homedir/.vim/filetype.vim || \
@@ -112,17 +110,15 @@ if [ $modified -eq 0 ] ; then echo "    not modified"; fi
 
 #COPY FILES AND BACKUP ANY EXISTING FILES
 echo "installing files and making backups if necessary (*$bext)"
-copyfile syntax/vo_base.vim $vimdir
-copyfile ftplugin/vo_base.vim $vimdir
-copyfile ftdetect/vo_base.vim $vimdir
-copyfile doc/vo_readme.txt $vimdir
-copyfile doc/vo_cheatsheet.txt $vimdir
-copyfile colors/vo_dark.vim $vimdir
-copyfile colors/vo_light.vim $vimdir
+copyfile syntax/votl.vim $vimdir
+copyfile ftplugin/votl.vim $vimdir
+copyfile ftdetect/votl.vim $vimdir
+copyfile doc/votl_readme.txt $vimdir
+copyfile doc/votl_cheatsheet.txt $vimdir
 copyfile vimoutliner/vimoutlinerrc $vimdir
-copyfile vimoutliner/scripts/vo_maketags.pl $vimdir
+copyfile vimoutliner/scripts/votl_maketags.pl $vimdir
 
-#INCORPORATE DOCS
+#INCORPORATE HELP DOCUMENTATION
 echo installing documentation
 vim -c "helptags $HOME/.vim/doc" -c q
 
@@ -152,10 +148,10 @@ cat <<EOT
 **********************************************************************
 * For help with using VimOutliner simply execute ":help vo" within   *
 * vim. For a quick overview of all commands execute:                 * 
-* ":help vo_cheatsheet"                                              *
+* ":help votl_cheatsheet"                                            *
 *                                                                    *
-* Additional scripts are available in the scripts folder, see        *
-* $HOME/.vim/vimoutliner/scripts                                     *
+* Additional useful scripts are available in the scripts folder,     *
+* see $HOME/.vim/vimoutliner/scripts                                 *
 **********************************************************************
 
 EOT

@@ -28,6 +28,8 @@ call vundle#rc()
     " Vim Extensions
     Bundle 'scrooloose/nerdtree'
     nnoremap <Leader>f :NERDTreeToggle<CR>
+    let NERDTreeCaseSensitiveSort=1
+    let NERDTreeDirArrows=0
     Bundle 'scrooloose/syntastic'
     Bundle 'majutsushi/tagbar'
     Bundle 'vimoutliner/vimoutliner'

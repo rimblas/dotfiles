@@ -9,11 +9,11 @@ if [ -d "${HOME}/Developer/Android/android-sdk-mac_86" ]; then
 fi
 
 # Ruby (RBEnv)
-if [[ -d "${HOME}/.rbenv/bin" ]]; then
+if [ -d "${HOME}/.rbenv/bin" ]; then
     # Edited output of `rbenv init -`
     export PATH="$HOME/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
     source "${HOME}/.rbenv/completions/rbenv.bash"
-    function rbenv() {
+    rbenv() {
       command="$1"
       if [ "$#" -gt 0 ]; then
         shift
@@ -40,4 +40,6 @@ if [ -d "/usr/local/lib/node" ]; then
 fi
 
 # Miscellaneous
-[ -r ${HOME}/.bashrc ] && . ${HOME}/.bashrc
+if [ -n "$BASH_VERSION" ]; then
+    [ -r ${HOME}/.bashrc ] && . ${HOME}/.bashrc
+fi

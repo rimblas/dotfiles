@@ -5,7 +5,8 @@ if has("macunix")
     set guifont=Inconsolata:h13
     "set guifont=Envy\ Code\ R:h13
 elseif has("unix")
-    set guifont=Consolas\ 12
+    "set guifont=Consolas\ 12
+    set guifont=Droid\ Sans\ Mono\ 10
 else
     set guifont=Consolas:h9:cANSI
 endif

@@ -27,9 +27,9 @@ fi
 for f in ./files/.[A-z]*; do
     # Overwrite symlinks without asking for confirmation
     if [ -L "$HOME/`basename $f`" ]; then
-        LNOPTS="-vsfh"
+        LNOPTS="-vsfn"
     else
-        LNOPTS="-vsih"
+        LNOPTS="-vsin"
     fi
     ln $LNOPTS "$PWD/files/`basename $f`" "$HOME/`basename $f`"
 done

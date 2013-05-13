@@ -1,5 +1,7 @@
 typeset -U path
 
+export LC_COLLATE="C"
+
 # Homedir
 if [[ -d "${HOME}/.local/bin" ]]; then
     path=("${HOME}/.local/bin" $path)
@@ -22,7 +24,7 @@ if [[ -d "${HOME}/.rbenv/bin" ]]; then
       fi
 
       case "$command" in
-      shell)
+      rehash|shell)
         eval `rbenv "sh-$command" "$@"`;;
       *)
         command rbenv "$command" "$@";;
@@ -31,10 +33,18 @@ if [[ -d "${HOME}/.rbenv/bin" ]]; then
 fi
 
 # Go Lang
+# Tweak GOROOT if user-specific install found
 if [[ -d "${HOME}/.local/src/go" ]]; then
     export GOROOT="${HOME}/.local/src/go"
-    export GOMAXPROCS=4
     path=($path "${GOROOT}/bin")
+fi
+
+if [[ -d "${HOME}/.local/golang" ]]; then
+    export GOPATH="${HOME}/.local/golang"
+fi
+
+if [[ -d "${HOME}/Projects/Golang" ]]; then
+    export GOPATH="${HOME}/Projects/Golang"
 fi
 
 # Hack: Keep $PATH synchronized for Cocoa and terminal apps

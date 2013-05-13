@@ -1,4 +1,9 @@
-alias ls='ls -AFG'
+if [ `uname` = "Darwin" ]; then
+    alias ls='ls -AFG'
+else
+    alias ls='ls -AF --color=auto'
+fi
+
 export LSCOLORS=ExGxFxdxCxDxDxxbaDacae
 
 export GREP_OPTIONS='--color=auto'
@@ -23,4 +28,4 @@ if [[ -x /usr/local/bin/mvim ]]; then
     alias rgview="mvim -gRZ"
 fi
 
-export EDITOR="mvim -v"
+export EDITOR="vim"

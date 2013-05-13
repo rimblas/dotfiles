@@ -4,6 +4,10 @@ if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 
+if [[ -r /etc/bash_completion.d/virtualenvwrapper ]]; then
+    source /etc/bash_completion.d/virtualenvwrapper
+fi
+
 # Automatically call workon when entering a folder with a .venv file
 # Via http://hmarr.com/2010/jan/19/making-virtualenv-play-nice-with-git/
 

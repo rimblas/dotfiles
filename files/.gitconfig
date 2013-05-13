@@ -1,6 +1,6 @@
 [user]
-	name = Dan Callahan
-	email = dan.callahan@gmail.com
+    name = Dan Callahan
+    email = dan.callahan@gmail.com
 [alias]
     ci = commit
     st = status
@@ -8,10 +8,10 @@
 [color]
     ui = auto
 [core]
-	quotepath = false
+    quotepath = false
 [difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
-	prompt = false
+    prompt = false
 [diff]
-	tool = Kaleidoscope
+    tool = Kaleidoscope

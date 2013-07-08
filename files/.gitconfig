@@ -9,6 +9,7 @@
     ui = auto
 [core]
     quotepath = false
+    precomposeunicode = true
 [difftool "Kaleidoscope"]
     cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]

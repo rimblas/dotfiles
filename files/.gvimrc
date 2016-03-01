@@ -1,18 +1,13 @@
-set background=dark
+set columns=80
+set lines=50
+
+set guioptions=cig
 
 if has("macunix")
-    "set guifont=DejaVu\ Sans\ Mono:h11
-    set guifont=Inconsolata:h13
-    "set guifont=Envy\ Code\ R:h13
+    set guifont=Inconsolata\ LGC:h11
 elseif has("unix")
-    "set guifont=Consolas\ 12
-    set guifont=Droid\ Sans\ Mono\ 10
+    set guifont=DejaVu\ Sans\ Mono\ 12
+    set guioptions+=a " Automatically add selections to the Xorg paste buffer
 else
     set guifont=Consolas:h9:cANSI
 endif
-
-set guioptions=c
-
-set relativenumber
-set columns=84
-set lines=60

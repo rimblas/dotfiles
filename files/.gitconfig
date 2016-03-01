@@ -4,15 +4,7 @@
 [alias]
     ci = commit
     st = status
-    glog = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-[color]
-    ui = auto
+    glog = log --pretty=format:\"%C(yellow)%h %C(cyan)%ad%Cred%d %Creset%s%Cblue [%an]\" --graph --decorate --date=short
 [core]
-    quotepath = false
-    precomposeunicode = true
-[difftool "Kaleidoscope"]
-    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
-[difftool]
-    prompt = false
-[diff]
-    tool = Kaleidoscope
+    quotePath = false
+    precomposeUnicode = true

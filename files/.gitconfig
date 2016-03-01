@@ -8,3 +8,5 @@
 [core]
     quotePath = false
     precomposeUnicode = true
+[push]
+    default = simple

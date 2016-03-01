@@ -1,4 +1,4 @@
-set nocompatible
+set nocompatible " (Neovim Default)
 
 " Vim-Plug Setup
 call plug#begin('~/.vim/plugged')
@@ -97,19 +97,19 @@ call plug#end()
 
 " Appearance
 colorscheme lucius
-syntax on
+syntax on " (Neovim Default)
 set ruler
 set colorcolumn=81
 set nofoldenable
 set showcmd
-set ttyfast
+set ttyfast " (Neovim Default)
 set background=dark
 set listchars=trail:·,precedes:«,extends:»,nbsp:_,tab:▸· " More: ⌇ ► ▸ ❯ ⇥
 set list
 
 " Searching
-set hlsearch
-set incsearch
+set hlsearch " (Neovim Default)
+set incsearch " (Neovim Default)
 set ignorecase
 set smartcase
 
@@ -117,8 +117,8 @@ set smartcase
 if filereadable($VIMRUNTIME . "/macros/matchit.vim")
     source $VIMRUNTIME/macros/matchit.vim
 endif
-set backspace=indent,eol,start
-set mouse=a "Enables the mouse in terminals
+set backspace=indent,eol,start " (Neovim Default)
+set mouse=a "Enables the mouse in terminals (Neovim Default)
 set completeopt+=longest
 
 " Editing Defaults
@@ -126,7 +126,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set textwidth=80
-set smarttab
+set smarttab " (Neovim Default)
 set expandtab
 set smartindent
 set copyindent

@@ -139,5 +139,6 @@ set wildignore+=[Tt]humbs.db
 set wildignore+=*.6
 
 " Misc
+set spell
 au FileType votl,go,make setlocal nolist
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>

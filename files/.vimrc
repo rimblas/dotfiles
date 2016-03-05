@@ -39,6 +39,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'hail2u/vim-css3-syntax'
     Plug 'jelera/vim-javascript-syntax'
         au FileType javascript call JavaScriptFold()
+    Plug 'mitsuhiko/vim-python-combined'
     Plug 'othree/html5.vim'
     Plug 'plasticboy/vim-markdown'
     Plug 'rust-lang/rust.vim'
@@ -61,6 +62,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer --gocode-completer --racer-completer' }
         let g:ycm_rust_src_path = '/usr/local/src/rust/1.5.0/src'
         let g:ycm_python_binary_path = '/usr/bin/python3'
+        let g:ycm_autoclose_preview_window_after_insertion = 1
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
     Plug 'ervandew/supertab'
@@ -128,8 +130,9 @@ set shiftwidth=4
 set textwidth=80
 set smarttab " (Neovim Default)
 set expandtab
-set smartindent
 set copyindent
+set smartindent
+inoremap # X<C-H>#
 
 " File Globbing
 set wildignore+=*.py[co]
@@ -141,4 +144,5 @@ set wildignore+=*.6
 " Misc
 set spell
 au FileType votl,go,make setlocal nolist
+au FileType gitcommit setlocal colorcolumn+=51
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>

@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Raimondi/delimitMate'
         let delimitMate_expand_cr    = 1
         let delimitMate_expand_space = 1
-        au FileType python       let b:delimitMate_nesting_quotes = ['"']
+        au FileType python       let b:delimitMate_nesting_quotes = ['"', '\'']
         au FileType markdown,mkd let b:delimitMate_nesting_quotes = ['`']
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
@@ -38,7 +38,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go'
     Plug 'hail2u/vim-css3-syntax'
     Plug 'jelera/vim-javascript-syntax'
-        au FileType javascript call JavaScriptFold()
     Plug 'mitsuhiko/vim-python-combined'
     Plug 'othree/html5.vim'
     Plug 'plasticboy/vim-markdown'
@@ -98,14 +97,14 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Appearance
-colorscheme lucius
 syntax on " (Neovim Default)
+set background=dark
+colorscheme lucius
 set ruler
 set colorcolumn=81
 set nofoldenable
 set showcmd
 set ttyfast " (Neovim Default)
-set background=dark
 set listchars=trail:·,precedes:«,extends:»,nbsp:_,tab:▸· " More: ⌇ ► ▸ ❯ ⇥
 set list
 
@@ -145,4 +144,7 @@ set wildignore+=*.6
 set spell
 au FileType votl,go,make setlocal nolist
 au FileType gitcommit setlocal colorcolumn+=51
+au FileType javascript setlocal foldmethod=syntax foldlevelstart=1 |
+  \ syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+set backupcopy=yes

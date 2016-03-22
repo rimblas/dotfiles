@@ -82,6 +82,13 @@ call plug#begin('~/.vim/plugged')
             let g:ackprg = 'ag --vimgrep'
         endif
 
+    Plug 'ctrlpvim/ctrlp.vim'
+        let g:ctrlp_cmd = 'CtrlPMixed'
+        if executable('ag')
+            let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
+            let g:ctrlp_use_caching = 0
+        endif
+
     "Plug 'Shougo/unite.vim'
     "    let g:unite_source_rec_async_command = ['ag', '--follow', '--vimgrep', '--hidden', '--ignore-case', '-g', '']
     "    let g:unite_source_grep_command = 'ag'

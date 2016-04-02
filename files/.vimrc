@@ -83,7 +83,6 @@ call plug#begin('~/.vim/plugged')
         endif
 
     Plug 'ctrlpvim/ctrlp.vim'
-        let g:ctrlp_cmd = 'CtrlPMixed'
         if executable('ag')
             let g:ctrlp_user_command = 'ag -l --nocolor -g "" %s'
             let g:ctrlp_use_caching = 0

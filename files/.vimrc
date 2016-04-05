@@ -41,7 +41,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'mitsuhiko/vim-python-combined'
     Plug 'othree/html5.vim'
     Plug 'plasticboy/vim-markdown'
-    Plug 'rust-lang/rust.vim'
+    "Plug 'rust-lang/rust.vim'
+    "Revert to upstream after https://github.com/rust-lang/rust.vim/pull/76
+    Plug 'somini/rust.vim'
+        let g:rustc_syntax_only = 0
     Plug 'tpope/vim-git'
     Plug 'vimoutliner/vimoutliner'
 
@@ -59,7 +62,7 @@ call plug#begin('~/.vim/plugged')
     " -- Completion --
 
     Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer --gocode-completer --racer-completer' }
-        let g:ycm_rust_src_path = '/usr/local/src/rust/1.5.0/src'
+        let g:ycm_rust_src_path = '/usr/local/src/rust/current/src'
         let g:ycm_python_binary_path = '/usr/bin/python3'
         let g:ycm_autoclose_preview_window_after_insertion = 1
     Plug 'SirVer/ultisnips'
@@ -152,5 +155,7 @@ au FileType votl,go,make setlocal nolist
 au FileType gitcommit setlocal colorcolumn+=51
 au FileType javascript setlocal foldmethod=syntax foldlevelstart=1 |
   \ syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+au FileType rust compiler cargo
+au BufRead,BufNewFile Cargo.toml,Cargo.lock compiler cargo
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 set backupcopy=yes

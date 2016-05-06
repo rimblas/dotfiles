@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
         let delimitMate_expand_space = 1
         au FileType python       let b:delimitMate_nesting_quotes = ['"', '\'']
         au FileType markdown,mkd let b:delimitMate_nesting_quotes = ['`']
+        au FileType clojure      let b:delimitMate_quotes = '"'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-surround'
 
@@ -37,10 +38,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'cespare/vim-toml'
     Plug 'fatih/vim-go'
     Plug 'hail2u/vim-css3-syntax'
-    Plug 'jelera/vim-javascript-syntax'
+    Plug 'lambdatoast/elm.vim'
     Plug 'mitsuhiko/vim-python-combined'
+    Plug 'othree/yajs.vim'
+    Plug 'othree/es.next.syntax.vim'
     Plug 'othree/html5.vim'
     Plug 'plasticboy/vim-markdown'
+    Plug 'raichoo/purescript-vim'
     "Plug 'rust-lang/rust.vim'
     "Revert to upstream after https://github.com/rust-lang/rust.vim/pull/76
     Plug 'somini/rust.vim'
@@ -58,6 +62,7 @@ call plug#begin('~/.vim/plugged')
         nnoremap <leader>u :GundoToggle<CR>
     Plug 'junegunn/goyo.vim'
     Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+    Plug 'tpope/vim-fireplace'
 
     " -- Completion --
 
@@ -130,6 +135,8 @@ endif
 set backspace=indent,eol,start " (Neovim Default)
 set mouse=a "Enables the mouse in terminals (Neovim Default)
 set completeopt+=longest
+set clipboard=unnamedplus
+set wildmode=longest:full,full
 
 " Editing Defaults
 set tabstop=4
@@ -150,7 +157,7 @@ set wildignore+=[Tt]humbs.db
 set wildignore+=*.6
 
 " Misc
-set spell
+au FileType markdown,text setlocal spell
 au FileType votl,go,make setlocal nolist
 au FileType gitcommit setlocal colorcolumn+=51
 au FileType javascript setlocal foldmethod=syntax foldlevelstart=1 |

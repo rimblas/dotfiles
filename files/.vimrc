@@ -26,17 +26,19 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree'
         map <leader>f :NERDTreeToggle<CR>
         let g:NERDTreeRespectWildIgnore = 1
-    Plug 'scrooloose/syntastic'
-        let g:syntastic_always_populate_loc_list = 1
-        let g:syntastic_check_on_wq = 0
-        let g:syntastic_error_symbol = '✘'
-        let g:syntastic_warning_symbol = '❢'
-        let g:syntastic_javascript_checkers = ['eslint']
+    Plug 'neomake/neomake'
+        au BufWritePost * Neomake
+        let g:neomake_open_list = 0
+        let g:neomake_error_sign = {'text': '✖', 'texthl': 'ErrorMsg'}
+        let g:neomake_warning_sign = {'text': '❢', 'texthl': 'WarningMsg'}
+        let g:neomake_message_sign = {'text': '➤', 'texthl': 'MoreMsg'}
+        let g:neomake_info_sign = {'text': 'ℹ', 'texthl': 'ModeMsg'}
 
     " File Types
     " See sheerun/vim-polyglot for more suggestions
     Plug 'cespare/vim-toml'
     Plug 'fatih/vim-go'
+        let g:go_fmt_fail_silently = 1
     Plug 'hail2u/vim-css3-syntax'
     Plug 'lambdatoast/elm.vim'
     Plug 'mitsuhiko/vim-python-combined'

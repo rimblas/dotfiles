@@ -40,6 +40,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go'
         let g:go_fmt_fail_silently = 1
     Plug 'hail2u/vim-css3-syntax'
+    Plug 'kballard/vim-fish'
     Plug 'lambdatoast/elm.vim'
     Plug 'mitsuhiko/vim-python-combined'
     Plug 'othree/yajs.vim'

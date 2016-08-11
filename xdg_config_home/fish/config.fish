@@ -7,9 +7,24 @@ if command -v lesspipe.sh > /dev/null
     set -x LESSOPEN "|lesspipe.sh %s"
 end
 
-set -x GOPATH "$HOME/.gocode:$HOME/Projects/LetsAuth/gocode"
+# Paths
+begin
+    set -l EXISTING
+    for DIR in "$HOME/.cargo/bin" "$HOME/.gocode/bin"
+        if test -d $DIR
+            set EXISTING $EXISTING $DIR
+        end
+    end
 
-set fish_user_paths "$HOME/.cargo/bin" "$HOME/.gocode/bin"
+    set fish_user_paths $EXISTING
+end
+
+# Golang
+for DIR in "$HOME/.gocode" "$HOME/Projects/LetsAuth/gocode"
+    if test -d $DIR
+        set -x GOPATH "$GOPATH:$DIR"
+    end
+end
 
 set fish_key_bindings fish_vi_key_bindings
 

@@ -45,6 +45,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mitsuhiko/vim-python-combined'
     Plug 'othree/yajs.vim'
     Plug 'othree/es.next.syntax.vim'
+    Plug 'lambdatoast/elm.vim'
     Plug 'othree/html5.vim'
     Plug 'plasticboy/vim-markdown'
     Plug 'raichoo/purescript-vim'
@@ -69,7 +70,8 @@ call plug#begin('~/.vim/plugged')
 
     " -- Completion --
 
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer --gocode-completer --racer-completer' }
+    " TODO: re-enable --clang-completer at some point
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --gocode-completer --racer-completer' }
         let g:ycm_rust_src_path = '/usr/local/src/rust/current/src'
         let g:ycm_python_binary_path = '/usr/bin/python3'
         let g:ycm_autoclose_preview_window_after_insertion = 1

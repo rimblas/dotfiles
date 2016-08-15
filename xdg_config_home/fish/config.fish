@@ -49,3 +49,5 @@ set -x DYLD_LIBRARY_PATH ~/Dropbox/oracle/instantclient_11_2
 set -x TNS_ADMIN ~/Dropbox/oracle/network/admin
 set -x SQLPATH ~/Dropbox/oracle/
 
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish

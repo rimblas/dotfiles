@@ -39,6 +39,7 @@ set -e fish_greeting
 
 # Global node global packages (for the user)
 add_user_path ~/Dropbox/node/npm_packages/bin
+add_user_path ~/node/npm_packages/bin
 
 # aliases for sql=sqlplus and sqlcl
 alias sql='rlwrap sqlplus'

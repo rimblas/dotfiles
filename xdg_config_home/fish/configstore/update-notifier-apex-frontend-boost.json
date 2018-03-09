@@ -1,0 +1,10 @@
+{
+	"optOut": false,
+	"lastUpdateCheck": 1496683552700,
+	"update": {
+		"latest": "3.1.3",
+		"current": "3.0.2",
+		"type": "minor",
+		"name": "apex-frontend-boost"
+	}
+}

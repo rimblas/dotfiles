@@ -46,7 +46,8 @@ alias sql='rlwrap sqlplus'
 alias sqlcl='~/Dropbox/oracle/sqlcl/bin/sql'
 
 # export variables for Oracle
-set -x DYLD_LIBRARY_PATH ~/Dropbox/oracle/instantclient_11_2
+# set -x DYLD_LIBRARY_PATH ~/Dropbox/oracle/instantclient_11_2
+set -x DYLD_LIBRARY_PATH ~/Dropbox/oracle/product/instantclient/12.2.0.1.0
 set -x TNS_ADMIN ~/Dropbox/oracle/network/admin
 set -x SQLPATH ~/Dropbox/oracle/
 

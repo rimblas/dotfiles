@@ -30,6 +30,7 @@ end
 set fish_key_bindings fish_vi_key_bindings
 
 set theme_date_format "+%H:%M:%S"
+# set theme_display_date "no"
 set theme_display_vi "yes"
 set theme_display_vi_hide_mode "insert"
 set theme_show_exit_status "yes"

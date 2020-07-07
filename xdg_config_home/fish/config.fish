@@ -39,18 +39,18 @@ set theme_show_exit_status "yes"
 set -e fish_greeting
 
 # Global node global packages (for the user)
-add_user_path ~/Dropbox/node/npm_packages/bin
+# add_user_path ~/node/npm_packages/bin
 add_user_path ~/node/npm_packages/bin
 
 # aliases for sql=sqlplus and sqlcl
 alias sql='rlwrap sqlplus'
-alias sqlcl='~/Dropbox/oracle/sqlcl/bin/sql'
+alias sqlcl='~/oracle/sqlcl/bin/sql'
 
 # export variables for Oracle
-# set -x DYLD_LIBRARY_PATH ~/Dropbox/oracle/instantclient_11_2
-set -x DYLD_LIBRARY_PATH ~/Dropbox/oracle/product/instantclient/12.2.0.1.0
-set -x TNS_ADMIN ~/Dropbox/oracle/network/admin
-set -x SQLPATH ~/Dropbox/oracle/
+# set -x DYLD_LIBRARY_PATH ~/oracle/instantclient_11_2
+set -x DYLD_LIBRARY_PATH ~/oracle/product/instantclient/12.2.0.1.0
+set -x TNS_ADMIN ~/oracle/network/admin
+set -x SQLPATH ~/oracle/sql
 
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish

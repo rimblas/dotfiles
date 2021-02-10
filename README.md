@@ -12,3 +12,13 @@ IMPORTANT: To get the full effect of the fish shell prompt you'll need Powerline
 ```
 ln -s ./dotfiles/xdg_config_home/fish ~/.config/fish
 ```
+
+### Karabiner
+1. Setup `./config/karabiner/assets/complex_modifications/rimblas.json` to point to karabiners assets.
+```
+ln -s ./dotfiles/karabiner/assets/complex_modifications/rimblas.json ~/.config/karabiner/assets/complex_modifications/rimblas.json
+```
+2. Use the karabiner Elements to load the new modifications.
+
+[Karabiner](https://karabiner-elements.pqrs.org/) allows the advance mapping of keyboard keys.  You can repamp single keys or map complex key combinations to execute actions.
+Visit [karabiner mappings](https://ke-complex-modifications.pqrs.org/?q=#application-specific) 

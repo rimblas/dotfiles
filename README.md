@@ -25,3 +25,5 @@ ln -s ./dotfiles/karabiner/assets/complex_modifications/zoom-mute-toggle.scpt ~/
 
 [Karabiner](https://karabiner-elements.pqrs.org/) allows the advance mapping of keyboard keys.  You can repamp single keys or map complex key combinations to execute actions.
 Visit [karabiner mappings](https://ke-complex-modifications.pqrs.org/?q=#application-specific) 
+
+For Windows and Linux learn about other key mapping software here: [mechanical-keyboard-guide](https://www.wasdkeyboards.com/mechanical-keyboard-guide)

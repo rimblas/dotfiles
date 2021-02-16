@@ -17,8 +17,13 @@ ln -s ./dotfiles/xdg_config_home/fish ~/.config/fish
 1. Setup `./config/karabiner/assets/complex_modifications/rimblas.json` to point to karabiners assets.
 ```
 ln -s ./dotfiles/karabiner/assets/complex_modifications/rimblas.json ~/.config/karabiner/assets/complex_modifications/rimblas.json
+ln -s ./dotfiles/karabiner/assets/complex_modifications/zoom-mute-toggle.scpt ~/.config/karabiner/assets/complex_modifications/zoom-mute-toggle.scpt
 ```
-2. Use the karabiner Elements to load the new modifications.
+2. Use the karabiner Elements to load the new modifications:
+  * Global Mute Toggle
+  * SQL Expander
 
 [Karabiner](https://karabiner-elements.pqrs.org/) allows the advance mapping of keyboard keys.  You can repamp single keys or map complex key combinations to execute actions.
 Visit [karabiner mappings](https://ke-complex-modifications.pqrs.org/?q=#application-specific) 
+
+For Windows and Linux learn about other key mapping software here: [mechanical-keyboard-guide](https://www.wasdkeyboards.com/mechanical-keyboard-guide)

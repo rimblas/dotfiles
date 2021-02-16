@@ -2,7 +2,28 @@
   "title": "Personal rules (@rimblas)",
   "rules": [
     {
-      "description": "Power TextExpander",
+      "description": "Global Mute Toggle",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f19",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript ~/.config/karabiner/assets/complex_modifications/zoom-mute-toggle.scpt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "SQL TextExpander",
       "manipulators": [
         {
           "type": "basic",

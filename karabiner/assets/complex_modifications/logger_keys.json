@@ -1,0 +1,28 @@
+{
+  "type": "basic",
+  "from": {
+    "key_code": "f15",
+    "modifiers": {
+      "mandatory": ["shift"]
+    }
+  },
+  "to": [
+    {
+      "shell_command": "osascript -e 'tell application \"TextExpander\" to expand abbreviation \"ol6\"'"
+    }
+  ]
+},
+{
+  "type": "basic",
+  "from": {
+    "key_code": "f15",
+    "modifiers": {
+      "optional": ["any"]
+    }
+  },
+  "to": [
+    {
+      "shell_command": "osascript -e 'tell application \"TextExpander\" to expand abbreviation \"ol5\"'"
+    }
+  ]
+}

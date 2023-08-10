@@ -55,3 +55,5 @@ set -x SQLPATH ~/oracle/sql
 
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
+source {$HOME}/.config/personalization.fish

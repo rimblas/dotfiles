@@ -41,26 +41,26 @@
 # ===========================
 
 # function __bobthefish_in_git -S -d 'Check whether pwd is inside a git repo'
-#   command which git > /dev/null ^&1
-#     and command git rev-parse --is-inside-work-tree >/dev/null ^&1
+#   command which git > /dev/null 2>&1
+#     and command git rev-parse --is-inside-work-tree >/dev/null 2>&1
 # end
 
 # function __bobthefish_in_hg -S -d 'Check whether pwd is inside a hg repo'
-#   command which hg > /dev/null ^&1
-#     and command hg stat > /dev/null ^&1
+#   command which hg > /dev/null 2>&1
+#     and command hg stat > /dev/null 2>&1
 # end
 
 function __bobthefish_git_branch -S -d 'Get the current git branch (or commitish)'
-  set -l ref (command git symbolic-ref HEAD ^/dev/null)
+  set -l ref (command git symbolic-ref HEAD 2>/dev/null)
   if [ $status -gt 0 ]
-    set -l branch (command git show-ref --head -s --abbrev | head -n1 ^/dev/null)
+    set -l branch (command git show-ref --head -s --abbrev | head -n1 2>/dev/null)
     set ref "$__bobthefish_detached_glyph $branch"
   end
   echo $ref | sed "s#refs/heads/#$__bobthefish_branch_glyph #"
 end
 
 function __bobthefish_hg_branch -S -d 'Get the current hg branch'
-  set -l branch (command hg branch ^/dev/null)
+  set -l branch (command hg branch 2>/dev/null)
   set -l book (command hg book | command grep \* | cut -d\  -f3)
   echo "$__bobthefish_branch_glyph $branch @ $book"
 end
@@ -72,11 +72,11 @@ end
 function __bobthefish_git_project_dir -S -d 'Print the current git project base directory'
   [ "$theme_display_git" = 'no' ]; and return
   if [ "$theme_git_worktree_support" != 'yes' ]
-    command git rev-parse --show-toplevel ^/dev/null
+    command git rev-parse --show-toplevel 2>/dev/null
     return
   end
 
-  set -l git_dir (command git rev-parse --git-dir ^/dev/null); or return
+  set -l git_dir (command git rev-parse --git-dir 2>/dev/null); or return
 
   pushd $git_dir
   set git_dir $PWD
@@ -88,7 +88,7 @@ function __bobthefish_git_project_dir -S -d 'Print the current git project base 
       # TODO: fix the underlying issues then re-enable the stuff below
 
       # # if we're inside the git dir, sweet. just return that.
-      # set -l toplevel (command git rev-parse --show-toplevel ^/dev/null)
+      # set -l toplevel (command git rev-parse --show-toplevel 2>/dev/null)
       # if [ "$toplevel" ]
       #   switch $git_dir/
       #     case $toplevel/\*
@@ -106,7 +106,7 @@ function __bobthefish_git_project_dir -S -d 'Print the current git project base 
       return
   end
 
-  set project_dir (command git rev-parse --show-toplevel ^/dev/null)
+  set project_dir (command git rev-parse --show-toplevel 2>/dev/null)
   switch $PWD/
     case $project_dir/\*
       echo $project_dir
@@ -118,7 +118,7 @@ function __bobthefish_hg_project_dir -S -d 'Print the current hg project base di
   set -l d $PWD
   while not [ $d = / ]
     if [ -e $d/.hg ]
-      command hg root --cwd "$d" ^/dev/null
+      command hg root --cwd "$d" 2>/dev/null
       return
     end
     set d (dirname $d)
@@ -135,11 +135,11 @@ function __bobthefish_git_ahead -S -d 'Print the ahead/behind state for the curr
     return
   end
 
-  command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null | awk '/>/ {a += 1} /</ {b += 1} {if (a > 0 && b > 0) nextfile} END {if (a > 0 && b > 0) print "±"; else if (a > 0) print "+"; else if (b > 0) print "-"}'
+  command git rev-list --left-right '@{upstream}...HEAD' 2>/dev/null | awk '/>/ {a += 1} /</ {b += 1} {if (a > 0 && b > 0) nextfile} END {if (a > 0 && b > 0) print "±"; else if (a > 0) print "+"; else if (b > 0) print "-"}'
 end
 
 function __bobthefish_git_ahead_verbose -S -d 'Print a more verbose ahead/behind state for the current branch'
-  set -l commits (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null)
+  set -l commits (command git rev-list --left-right '@{upstream}...HEAD' 2>/dev/null)
   [ $status != 0 ]; and return
 
   set -l behind (count (for arg in $commits; echo $arg; end | command grep '^<'))
@@ -240,7 +240,7 @@ function __bobthefish_prompt_vagrant -S -d 'Display Vagrant status'
   [ "$theme_display_vagrant" = 'yes' -a -f Vagrantfile ]; or return
   if type -q VBoxManage
     __bobthefish_prompt_vagrant_vbox
-  else if grep vmware_fusion Vagrantfile >/dev/null ^&1
+  else if grep vmware_fusion Vagrantfile >/dev/null 2>&1
     __bobthefish_prompt_vagrant_vmware
   end
 end
@@ -255,7 +255,7 @@ end
 function __bobthefish_prompt_vagrant_vbox -S -d 'Display VirtualBox Vagrant status'
   set -l vagrant_status
   for id in (__bobthefish_vagrant_ids)
-    set -l vm_status (VBoxManage showvminfo --machinereadable $id ^/dev/null | command grep 'VMState=' | tr -d '"' | cut -d '=' -f 2)
+    set -l vm_status (VBoxManage showvminfo --machinereadable $id 2>/dev/null | command grep 'VMState=' | tr -d '"' | cut -d '=' -f 2)
     switch "$vm_status"
       case 'running'
         set vagrant_status "$vagrant_status$__bobthefish_vagrant_running_glyph"
@@ -437,8 +437,8 @@ function __bobthefish_prompt_git -S -a current_dir -d 'Display the actual git st
     return
   end
 
-  set -l project_pwd (command git rev-parse --show-prefix ^/dev/null | sed -e 's#/$##')
-  set -l work_dir (command git rev-parse --show-toplevel ^/dev/null)
+  set -l project_pwd (command git rev-parse --show-prefix 2>/dev/null | sed -e 's#/$##')
+  set -l work_dir (command git rev-parse --show-toplevel 2>/dev/null)
 
   # only show work dir if it's a parent…
   if [ "$work_dir" ]

@@ -1,0 +1,117 @@
+{
+  "title": "Personal rules (@rimblas)",
+  "rules": [
+    {
+      "description": "Global Mute Toggle",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f19",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript ~/.config/karabiner/assets/complex_modifications/zoom-mute-toggle.scpt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "SQL TextExpander",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f13",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"TextExpander\" to expand abbreviation \"s*\"'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f13",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"TextExpander\" to expand abbreviation \"s*c\"'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f14",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"TextExpander\" to expand abbreviation \"sc*c\"'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f14",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"TextExpander\" to expand abbreviation \"sc*\"'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f15",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"TextExpander\" to expand abbreviation \"ol6\"'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f15",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "osascript -e 'tell application \"TextExpander\" to expand abbreviation \"ol5\"'"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

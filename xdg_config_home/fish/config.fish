@@ -54,3 +54,5 @@ set -x SQLPATH ~/Dropbox/oracle/
 
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
+alias wmgt="cd /Users/rimblas/Dropbox/work/repos/wmgt"
